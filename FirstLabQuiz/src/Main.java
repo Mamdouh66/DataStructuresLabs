@@ -1,28 +1,50 @@
 
 public class Main {
     public static void main(String[] args) {
-        CircularLinkedList linkedList = new CircularLinkedList();
+        CircularLinkedList list = new CircularLinkedList();
 
         System.out.println();
 
-        linkedList.add(-2);
-        linkedList.add(-4);
-        linkedList.add(-6);
-        linkedList.add(-8);
-        linkedList.add(9);
-        linkedList.add(7);
-        linkedList.add(5);
-        linkedList.add(3);
-        linkedList.add(1);
-        linkedList.add(11);
-        linkedList.printList();
-        linkedList.lock();
-        linkedList.add(11);
-        linkedList.add(12);
-        linkedList.unlock();
-        linkedList.remove();
-        linkedList.add(11);
-        linkedList.printList();
+        // Adding negative values
+        list.add(-2);
+        list.add(-4);
+        list.add(-6);
+        list.add(-8);
+        System.out.println();
+
+        // Adding positive values
+        list.add(9);
+        list.add(7);
+        list.add(5);
+        list.add(3);
+        list.add(1);
+
+        // Trying to add more than five values
+        list.add(11);
+
+        System.out.println();
+        // Print the linked list
+        list.printList();
+
+        // Locking the list
+        list.lock();
+
+        // Trying to add when locked
+        list.add(11);
+        list.add(12);
+        System.out.println();
+
+        // Unlocking list
+        list.unlock();
+
+        // Removing head
+        list.remove();
+
+        // Adding new element
+        list.add(11);
+
+        // Locking the list
+        list.printList();
 
     }
 }
@@ -56,7 +78,7 @@ class CircularLinkedList {
             return;
         }
         if (data < 0) {
-            System.out.println("The linked list cannot accept negative values");
+            System.out.println("The linked list cannot accept negative values [" + data +"]");
             return;
         }
         if (size >= 5) {
